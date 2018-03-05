@@ -62,14 +62,14 @@ class sudoku:
             if self.expired: #wrong puzzle
                 return {
                     'done' : False,
-                    'iterations' : self.Iterations ,
+                    'iterations' : self.Iterations - 1 ,
                     'guesses' : self.guesses,
                     'timeTaken' : clock(),
                     'solution' : None}
             elif(self.solved == self.__n**2): #solved
                 return {
                     'done' : True ,
-                    'iterations' : self.Iterations ,
+                    'iterations' : self.Iterations - 1 ,
                     'guesses' : self.guesses,
                     'timeTaken' : clock(),
                     'solution' : self.myTable() }
