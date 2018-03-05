@@ -26,13 +26,14 @@ class sudoku:
 
         for i in range(self.__n):
             for j in range(self.__n):
-                b = 3*(i//3) + (j//3)
+                k = int((self.__n)**(1/2.0))
+                b = k*(i//k) + (j//k)
                 e = element(self,self.__rows[i],self.__cols[j],self.blocks[b])
                 if(vals[i][j] != 0):
                     e.setVal(vals[i][j])
                 self.__rows[i].setVal(j,e)
                 self.__cols[j].setVal(i,e)
-                self.blocks[b].setVal( 3*(i%3) + j%3,e)
+                self.blocks[b].setVal( k*(i%k) + j%k,e)
                 self.__eles.append(e)
                 
         for i in self.__eles:
